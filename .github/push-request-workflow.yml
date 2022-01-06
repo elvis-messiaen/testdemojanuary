@@ -35,5 +35,14 @@ jobs:
           with:
               name: app.jar
               path: ./target/testDemo-0.0.1-SNAPSHOT.jar
+    build-docker:
+     needs: build-app
+     runs-on: ubuntu-latest
+     steps:
+       - name:  Récuperation du jar
+         uses: actions/dowload-artifact@v2
+         with:
+           name: app.jar
+        -run: ls
 
 

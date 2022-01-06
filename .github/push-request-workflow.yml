@@ -1,7 +1,7 @@
-name: Pull workflow push
+name: Pull request workflow
 
 on:
-  pull-request:
+  pull_request:
     branches:
       - main
 
@@ -34,6 +34,15 @@ jobs:
           uses: actions/upload-artifact@v2
           with:
               name: app.jar
-              path: .target/testDemo-0.0.1-SNAPSHOT.jar
+              path: ./target/testDemo-0.0.1-SNAPSHOT.jar
+    build-docker:
+     needs: build-app
+     runs-on: ubuntu-latest
+     steps:
+       - name:  Récuperation du jar
+         uses: actions/dowload-artifact@v2
+         with:
+           name: app.jar
+        -run: ls
 
 

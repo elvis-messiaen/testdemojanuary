@@ -58,6 +58,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: elvis1971/testDemo:latest
+          tags: elvis1971/testdemo:latest
 
 
